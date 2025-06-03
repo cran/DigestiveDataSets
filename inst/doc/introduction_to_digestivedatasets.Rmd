@@ -1,0 +1,125 @@
+---
+title: "Introduction to DigestiveDataSets"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to DigestiveDataSets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(DigestiveDataSets)
+library(ggplot2)
+library(dplyr)
+```
+
+# Introduction
+
+The `DigestiveDataSets` package offers a comprehensive and curated collection of datasets focused on **the digestive system, including the stomach, intestines, liver, pancreas, and related disorders**. This package encompasses a variety of data types such as clinical trials, observational studies, experimental datasets, cohort data, and case series, providing broad coverage of gastrointestinal diseases.
+
+Included datasets span a range of conditions such as **gastritis, ulcers, pancreatitis, liver cirrhosis, colorectal diseases, colon cancer, Helicobacter pylori infection, irritable bowel syndrome, intestinal infections, and post-surgical outcomes**. These datasets serve multiple purposes in education, clinical practice, and biomedical research, and are particularly valuable in fields such as gastroenterology, public health, and epidemiology.
+
+## Dataset Suffixes
+
+Each dataset in the `DigestiveDataSets` package uses a `suffix` to denote the type of R object:
+
+- `_df`: data frame
+
+- `_tbl_df`: tibble
+
+- `_ts`: time series
+
+Below are selected example datasets included in the `DigestiveDataSets` package:
+
+- `digestive_cancer_survival_df`: Digestive Cancer Survival Times.
+
+- `campylobacter_infections_ts`: Campylobacter Infections Time Series.
+
+- `cholera_deaths_1849_tbl_df`: Cholera Daily Deaths in England, 1849.
+
+
+## Data Visualization with DigestiveDataSets Data
+
+###  Digestive Cancer Survival Times
+
+```{r digestive-cancer-plot, fig.width=6, fig.height=4.5, out.width="90%"}
+
+
+# Minimal data processing WITHOUT tidyr
+digestive_cancer_survival_df %>%
+  summarise(
+    Stomach = sum(stomach, na.rm = TRUE),
+    Colon = sum(colon, na.rm = TRUE)
+  ) %>% 
+  # Convert to plot-ready format WITHOUT tidyr
+  {data.frame(
+    Cancer = names(.),
+    Cases = unlist(., use.names = FALSE)
+  )} %>% 
+  # Plot
+  ggplot(aes(x = Cancer, y = Cases)) +
+  geom_col(fill = c("#e63946", "#1d3557")) +
+  labs(title = "Stomach vs Colon Cancer Cases") +
+  theme_minimal()
+
+```
+
+
+### Campylobacter Infections Time Series.
+
+```{r campylobacter-infections-plot, fig.width=6, fig.height=4.5, out.width="90%"}
+
+# Convert ts to numeric vector and numeric time
+campy_df <- data.frame(
+  infections = as.numeric(campylobacter_infections_ts),
+  time = as.numeric(time(campylobacter_infections_ts))
+)
+
+# Plot without warning by using numeric 'time'
+ggplot(campy_df, aes(x = time, y = infections)) +
+  geom_line(color = "steelblue") +
+  geom_point(color = "steelblue") +
+  labs(
+    title = "Campylobacter Infections Over Time",
+    x = "Time (year.fraction)",
+    y = "Number of Infections"
+  ) +
+  theme_minimal()
+
+
+```
+
+
+### Cholera Daily Deaths in England, 1849.
+
+```{r cholera-deaths-plot, fig.width=6, fig.height=4.5, out.width="90%"}
+
+ggplot(cholera_deaths_1849_tbl_df, aes(x = date, y = deaths, color = cause_of_death)) +
+  geom_line() +
+  labs(
+    title = "Cholera Deaths Over Time in 1849",
+    x = "Date",
+    y = "Number of Deaths",
+    color = "Cause of Death"
+  ) +
+  theme_minimal()
+
+
+
+```
+
+## Conclusion
+
+The `DigestiveDataSets` package offers a comprehensive, well-curated collection of datasets focused on the digestive system and related diseases. By including clinical trials, observational studies, cohort data, and experimental datasets covering a broad spectrum of gastrointestinal conditions, this package supports a wide range of applications in research, education, and clinical practice.
+
+For detailed information and full documentation of each dataset, please refer to the reference manual and help files included within the package.
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
+

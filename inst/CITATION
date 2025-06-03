@@ -1,0 +1,9 @@
+bibentry(
+  bibtype = "Manual",
+  title = "DigestiveDataSets: A Curated Collection of Digestive System and Gastrointestinal Disease Datasets",
+  author = person(given = "Renzo", family = "Caceres Rossi"),
+  year = 2025,
+  note = "R package version 0.1.0",
+  url = "https://github.com/lightbluetitan/digestivedatasets"
+)
+
