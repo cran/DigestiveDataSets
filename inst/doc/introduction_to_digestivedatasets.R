@@ -9,6 +9,13 @@ library(DigestiveDataSets)
 library(ggplot2)
 library(dplyr)
 
+## ----digestive-datasets,echo = TRUE,message = FALSE,warning = FALSE,results = 'markup'----
+
+
+view_datasets_DigestiveDataSets()
+
+
+
 ## ----digestive-cancer-plot, fig.width=6, fig.height=4.5, out.width="90%"------
 
 

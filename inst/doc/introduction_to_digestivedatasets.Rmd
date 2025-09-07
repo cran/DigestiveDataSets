@@ -1,8 +1,8 @@
 ---
-title: "Introduction to DigestiveDataSets"
+title: "DigestiveDataSets: A Curated Collection of Digestive System and Gastrointestinal Disease Datasets"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to DigestiveDataSets}
+  %\VignetteIndexEntry{DigestiveDataSets: A Curated Collection of Digestive System and Gastrointestinal Disease Datasets}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -25,6 +25,17 @@ library(dplyr)
 The `DigestiveDataSets` package offers a comprehensive and curated collection of datasets focused on **the digestive system, including the stomach, intestines, liver, pancreas, and related disorders**. This package encompasses a variety of data types such as clinical trials, observational studies, experimental datasets, cohort data, and case series, providing broad coverage of gastrointestinal diseases.
 
 Included datasets span a range of conditions such as **gastritis, ulcers, pancreatitis, liver cirrhosis, colorectal diseases, colon cancer, Helicobacter pylori infection, irritable bowel syndrome, intestinal infections, and post-surgical outcomes**. These datasets serve multiple purposes in education, clinical practice, and biomedical research, and are particularly valuable in fields such as gastroenterology, public health, and epidemiology.
+
+## All datasets within DigestiveDataSets
+
+```{r digestive-datasets,echo = TRUE,message = FALSE,warning = FALSE,results = 'markup'}
+
+
+view_datasets_DigestiveDataSets()
+
+
+```
+
 
 ## Dataset Suffixes
 

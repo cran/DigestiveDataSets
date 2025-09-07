@@ -53,7 +53,7 @@ library(DigestiveDataSets)
 
 # List all datasets in the package
 
-view_datasets_digestive()
+view_datasets_DigestiveDataSets()
 
 # Load dataset
 

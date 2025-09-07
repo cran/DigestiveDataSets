@@ -1,5 +1,5 @@
 # DigestiveDataSets - A Curated Collection of Digestive System and Gastrointestinal Disease Datasets
-# Version 0.1.0
+# Version 0.2.0
 # Copyright (C) 2025 Renzo Caceres Rossi
 #
 # This program is free software: you can redistribute it and/or modify
@@ -15,19 +15,19 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# view_datasets_digestive
+# view_datasets_DigestiveDataSets
 
 library(testthat)
 library(DigestiveDataSets)
 
-test_that("view_datasets_digestive works when package is loaded", {
-  result <- view_datasets_digestive()
+test_that("view_datasets_DigestiveDataSets works when package is loaded", {
+  result <- view_datasets_DigestiveDataSets()
   expect_type(result, "character")
   expect_true(length(result) > 0)
 })
 
-test_that("view_datasets_digestive prints correct message", {
-  output <- capture_messages(view_datasets_digestive())
+test_that("view_datasets_DigestiveDataSets prints correct message", {
+  output <- capture_messages(view_datasets_DigestiveDataSets())
   expect_match(
     output[1],
     "Datasets available in the 'DigestiveDataSets' package:",
@@ -35,8 +35,8 @@ test_that("view_datasets_digestive prints correct message", {
   )
 })
 
-test_that("view_datasets_digestive returns expected datasets", {
-  datasets <- view_datasets_digestive()
+test_that("view_datasets_DigestiveDataSets returns expected datasets", {
+  datasets <- view_datasets_DigestiveDataSets()
   expected_datasets <- c(
     "weight_loss_df",
     "anorexia_weight_change_df",
